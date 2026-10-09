@@ -1,0 +1,164 @@
+{
+  "schemaVersion": 1,
+  "label": "T-junction, minor road stop-controlled",
+  "network": {
+    "drivingSide": "right",
+    "nodes": [
+      {
+        "id": "j",
+        "x": 0,
+        "y": 0,
+        "control": "priority_stop"
+      },
+      {
+        "id": "w",
+        "x": -300,
+        "y": 0
+      },
+      {
+        "id": "e",
+        "x": 300,
+        "y": 0
+      },
+      {
+        "id": "s",
+        "x": 0,
+        "y": -250
+      }
+    ],
+    "roads": [
+      {
+        "id": "main1",
+        "from": "w",
+        "to": "j",
+        "shape": [],
+        "laneWidthM": 3.65,
+        "speedLimitKmh": 60,
+        "priority": 3,
+        "forward": {
+          "lanes": 1
+        },
+        "backward": {
+          "lanes": 1
+        }
+      },
+      {
+        "id": "main2",
+        "from": "j",
+        "to": "e",
+        "shape": [],
+        "laneWidthM": 3.65,
+        "speedLimitKmh": 60,
+        "priority": 3,
+        "forward": {
+          "lanes": 1
+        },
+        "backward": {
+          "lanes": 1
+        }
+      },
+      {
+        "id": "minor",
+        "from": "s",
+        "to": "j",
+        "shape": [
+          [
+            0,
+            -120
+          ],
+          [
+            15,
+            -60
+          ]
+        ],
+        "laneWidthM": 3.5,
+        "speedLimitKmh": 40,
+        "priority": 1,
+        "forward": {
+          "lanes": 1
+        },
+        "backward": {
+          "lanes": 1
+        }
+      }
+    ]
+  },
+  "demand": {
+    "source": "assumed",
+    "origins": [
+      {
+        "node": "w",
+        "flowVehPerHour": 500,
+        "mix": {
+          "car": 0.95,
+          "truck": 0.05,
+          "bus": 0
+        },
+        "destinations": [
+          {
+            "node": "e",
+            "share": 0.8
+          },
+          {
+            "node": "s",
+            "share": 0.2
+          }
+        ]
+      },
+      {
+        "node": "e",
+        "flowVehPerHour": 500,
+        "mix": {
+          "car": 0.95,
+          "truck": 0.05,
+          "bus": 0
+        },
+        "destinations": [
+          {
+            "node": "w",
+            "share": 0.8
+          },
+          {
+            "node": "s",
+            "share": 0.2
+          }
+        ]
+      },
+      {
+        "node": "s",
+        "flowVehPerHour": 200,
+        "mix": {
+          "car": 1,
+          "truck": 0,
+          "bus": 0
+        },
+        "destinations": [
+          {
+            "node": "w",
+            "share": 0.5
+          },
+          {
+            "node": "e",
+            "share": 0.5
+          }
+        ]
+      }
+    ]
+  },
+  "run": {
+    "durationS": 900,
+    "warmupS": 180,
+    "stepLengthS": 0.2,
+    "replications": 3,
+    "baseSeed": 1,
+    "trajectory": {
+      "enabled": true,
+      "periodS": 0.4,
+      "beginS": 0,
+      "maxDurationS": 300
+    }
+  },
+  "drivers": {
+    "carFollowModel": "EIDM"
+  }
+}

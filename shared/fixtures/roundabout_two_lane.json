@@ -1,0 +1,212 @@
+{
+  "schemaVersion": 1,
+  "label": "Two-lane roundabout",
+  "network": {
+    "drivingSide": "right",
+    "nodes": [
+      {
+        "id": "r",
+        "x": 0,
+        "y": 0,
+        "control": "roundabout",
+        "roundabout": {
+          "radiusM": 30,
+          "lanes": 2,
+          "laneWidthM": 4.0,
+          "speedLimitKmh": 30
+        }
+      },
+      {
+        "id": "n",
+        "x": 0,
+        "y": 250
+      },
+      {
+        "id": "s",
+        "x": 0,
+        "y": -250
+      },
+      {
+        "id": "e",
+        "x": 250,
+        "y": 0
+      },
+      {
+        "id": "w",
+        "x": -250,
+        "y": 0
+      }
+    ],
+    "roads": [
+      {
+        "id": "rn",
+        "from": "n",
+        "to": "r",
+        "shape": [],
+        "laneWidthM": 3.65,
+        "speedLimitKmh": 60,
+        "forward": {
+          "lanes": 2
+        },
+        "backward": {
+          "lanes": 2
+        }
+      },
+      {
+        "id": "rs",
+        "from": "s",
+        "to": "r",
+        "shape": [],
+        "laneWidthM": 3.65,
+        "speedLimitKmh": 60,
+        "forward": {
+          "lanes": 2
+        },
+        "backward": {
+          "lanes": 2
+        }
+      },
+      {
+        "id": "re",
+        "from": "e",
+        "to": "r",
+        "shape": [],
+        "laneWidthM": 3.65,
+        "speedLimitKmh": 60,
+        "forward": {
+          "lanes": 2
+        },
+        "backward": {
+          "lanes": 2
+        }
+      },
+      {
+        "id": "rw",
+        "from": "w",
+        "to": "r",
+        "shape": [],
+        "laneWidthM": 3.65,
+        "speedLimitKmh": 60,
+        "forward": {
+          "lanes": 2
+        },
+        "backward": {
+          "lanes": 2
+        }
+      }
+    ]
+  },
+  "demand": {
+    "source": "assumed",
+    "origins": [
+      {
+        "node": "n",
+        "flowVehPerHour": 500,
+        "mix": {
+          "car": 0.9,
+          "truck": 0.08,
+          "bus": 0.02
+        },
+        "destinations": [
+          {
+            "node": "s",
+            "share": 0.5
+          },
+          {
+            "node": "e",
+            "share": 0.25
+          },
+          {
+            "node": "w",
+            "share": 0.25
+          }
+        ]
+      },
+      {
+        "node": "s",
+        "flowVehPerHour": 500,
+        "mix": {
+          "car": 0.9,
+          "truck": 0.08,
+          "bus": 0.02
+        },
+        "destinations": [
+          {
+            "node": "n",
+            "share": 0.5
+          },
+          {
+            "node": "w",
+            "share": 0.25
+          },
+          {
+            "node": "e",
+            "share": 0.25
+          }
+        ]
+      },
+      {
+        "node": "e",
+        "flowVehPerHour": 400,
+        "mix": {
+          "car": 0.9,
+          "truck": 0.08,
+          "bus": 0.02
+        },
+        "destinations": [
+          {
+            "node": "w",
+            "share": 0.5
+          },
+          {
+            "node": "s",
+            "share": 0.25
+          },
+          {
+            "node": "n",
+            "share": 0.25
+          }
+        ]
+      },
+      {
+        "node": "w",
+        "flowVehPerHour": 400,
+        "mix": {
+          "car": 0.9,
+          "truck": 0.08,
+          "bus": 0.02
+        },
+        "destinations": [
+          {
+            "node": "e",
+            "share": 0.5
+          },
+          {
+            "node": "n",
+            "share": 0.25
+          },
+          {
+            "node": "s",
+            "share": 0.25
+          }
+        ]
+      }
+    ]
+  },
+  "run": {
+    "durationS": 900,
+    "warmupS": 180,
+    "stepLengthS": 0.2,
+    "replications": 3,
+    "baseSeed": 1,
+    "trajectory": {
+      "enabled": true,
+      "periodS": 0.4,
+      "beginS": 0,
+      "maxDurationS": 300
+    }
+  },
+  "drivers": {
+    "carFollowModel": "EIDM"
+  }
+}

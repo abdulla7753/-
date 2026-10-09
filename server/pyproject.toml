@@ -1,0 +1,17 @@
+[project]
+name = "roadflow-server"
+version = "0.1.0"
+description = "RoadFlow AI simulation server: SUMO-based microscopic traffic simulation API"
+requires-python = ">=3.11"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.ruff]
+line-length = 130
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP"]
+ignore = ["E501"]
