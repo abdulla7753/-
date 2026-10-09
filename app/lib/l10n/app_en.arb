@@ -1,0 +1,626 @@
+{
+  "@@locale": "en",
+  "appTitle": "RoadFlow AI",
+  "appTagline": "Road design and microscopic traffic simulation",
+  "otherLanguage": "العربية",
+  "projects": "Projects",
+  "newProject": "New project",
+  "newProjectDefaultName": "Untitled study",
+  "projectName": "Project name",
+  "startFrom": "Start from",
+  "templateBlank": "Blank canvas",
+  "templateSignalised": "4-arm signalised intersection",
+  "templateTJunction": "T-junction (stop on minor road)",
+  "templateRoundabout": "Roundabout",
+  "templateDemandNote": "Templates include an assumed demand scenario (labelled as assumed) so a first run is possible. Replace it with observed counts for real studies.",
+  "cancel": "Cancel",
+  "create": "Create",
+  "save": "Save",
+  "delete": "Delete",
+  "clear": "Clear",
+  "deleteProject": "Delete project",
+  "deleteProjectConfirm": "Delete \"{name}\" and all its variants? This cannot be undone.",
+  "@deleteProjectConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "projectLoadFailed": "The project could not be opened.",
+  "noProjects": "No projects yet",
+  "noProjectsHint": "Create a project to start designing roads and intersections.",
+  "variantsCount": "Design variants: {count}",
+  "@variantsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "lastModified": "Modified {date}",
+  "@lastModified": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "variantExisting": "Existing",
+  "serverSettings": "Simulation server",
+  "serverExplanation": "Design work is stored on this device and works offline. Simulations run on the RoadFlow server (SUMO). Use HTTPS outside a trusted network.",
+  "serverUrl": "Server address",
+  "apiToken": "Access token (optional)",
+  "testConnection": "Test connection",
+  "serverOk": "Connected: {engine} (server {version})",
+  "@serverOk": {
+    "placeholders": {
+      "engine": {
+        "type": "String"
+      },
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "serverUnreachable": "Cannot reach the server: {error}",
+  "@serverUnreachable": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "serverLine": "Server: {url}",
+  "@serverLine": {
+    "placeholders": {
+      "url": {
+        "type": "String"
+      }
+    }
+  },
+  "saved": "Saved",
+  "saving": "Saving…",
+  "saveFailed": "Saving failed",
+  "renameProject": "Rename project",
+  "modeDesign": "Design",
+  "modeSimulation": "Simulation",
+  "undo": "Undo",
+  "redo": "Redo",
+  "fitToView": "Fit to view",
+  "hidePanel": "Hide panel",
+  "showPanel": "Show panel",
+  "variantActions": "Design variants",
+  "duplicateVariant": "Duplicate as new variant",
+  "renameVariant": "Rename variant",
+  "deleteVariant": "Delete variant",
+  "variantCopyName": "{name} – alternative",
+  "@variantCopyName": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "cannotDeleteLastVariant": "A project needs at least one variant.",
+  "toolSelect": "Select",
+  "toolRoad": "Road",
+  "toolCurve": "Curve",
+  "toolJunction": "Junction",
+  "toolMeasure": "Measure",
+  "deleteSelection": "Delete selected",
+  "lanesForwardShort": "Lanes →",
+  "lanesBackwardShort": "Lanes ←",
+  "speedLimit": "Speed limit",
+  "optAutoJunctions": "Junctions at crossings",
+  "optGridSnap": "Grid snap",
+  "optAngleSnap": "15° angles",
+  "optPenOnly": "Draw with pen only",
+  "templateFourWaySignal": "4-arm, signals",
+  "templateTStop": "T-junction, stop",
+  "armLength": "Arm length",
+  "hintTapToPlace": "Tap the canvas to place",
+  "hintMeasure": "Tap points to measure length, angles and area",
+  "hintSelect": "Tap to select · drag nodes to move · two fingers to pan and zoom",
+  "measureLength": "Length {m} m",
+  "@measureLength": {
+    "placeholders": {
+      "m": {
+        "type": "String"
+      }
+    }
+  },
+  "measureBearing": "Bearing {deg}°",
+  "@measureBearing": {
+    "placeholders": {
+      "deg": {
+        "type": "String"
+      }
+    }
+  },
+  "measureAngle": "Angle {deg}°",
+  "@measureAngle": {
+    "placeholders": {
+      "deg": {
+        "type": "String"
+      }
+    }
+  },
+  "measureArea": "Area {m2} m²",
+  "@measureArea": {
+    "placeholders": {
+      "m2": {
+        "type": "String"
+      }
+    }
+  },
+  "tabProperties": "Properties",
+  "tabDemand": "Traffic",
+  "tabSimulation": "Simulate",
+  "tabResults": "Results",
+  "propertiesHint": "Select a road or junction on the canvas to edit it. Draw roads with the Road or Curve tool; junctions are created where roads meet.",
+  "networkSettings": "Network",
+  "drivingSide": "Driving side",
+  "drivingRight": "Right-hand (e.g. Qatar)",
+  "drivingLeft": "Left-hand",
+  "allowUTurns": "Allow U-turns at junctions",
+  "allowUTurnsHint": "Applies to every junction in this variant.",
+  "newRoadDefaults": "New road defaults",
+  "lanesForward": "Lanes in drawing direction",
+  "lanesBackward": "Lanes in opposite direction",
+  "laneWidth": "Lane width",
+  "defaultsNotStandards": "Editor defaults only: they are not design-standard values. Enter the dimensions required by the applicable manual.",
+  "networkSummary": "Summary",
+  "summaryCounts": "{nodes} nodes · {roads} road segments",
+  "@summaryCounts": {
+    "placeholders": {
+      "nodes": {
+        "type": "int"
+      },
+      "roads": {
+        "type": "int"
+      }
+    }
+  },
+  "summaryLength": "Total centreline length: {km} km",
+  "@summaryLength": {
+    "placeholders": {
+      "km": {
+        "type": "String"
+      }
+    }
+  },
+  "gateTitle": "Road end {id}",
+  "@gateTitle": {
+    "placeholders": {
+      "id": {
+        "type": "String"
+      }
+    }
+  },
+  "nodeTitle": "Junction {id}",
+  "@nodeTitle": {
+    "placeholders": {
+      "id": {
+        "type": "String"
+      }
+    }
+  },
+  "nodeDegree": "Connected road segments: {n}",
+  "@nodeDegree": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "name": "Name",
+  "elevation": "Elevation",
+  "junctionControl": "Junction control",
+  "controlPriority": "Priority (give way)",
+  "controlPriorityStop": "Stop on minor road",
+  "controlTrafficLight": "Traffic signals",
+  "controlAllwayStop": "All-way stop",
+  "controlRightBeforeLeft": "Uncontrolled (right before left)",
+  "controlRoundabout": "Roundabout",
+  "helpPriority": "The major road (higher priority / speed / lanes) has right of way; minor approaches yield.",
+  "helpPriorityStop": "Minor approaches must stop, then enter when a gap is accepted.",
+  "helpTrafficLight": "Fixed-time plan generated from the Simulate tab settings; the plan used is shown in playback.",
+  "helpAllwayStop": "Every approach stops before entering.",
+  "helpRightBeforeLeft": "No priority road: traffic from the right goes first.",
+  "helpRoundabout": "Circulating traffic has priority; entries yield. Counter-clockwise for right-hand traffic.",
+  "roundaboutRadius": "Radius to circulating centreline",
+  "roundaboutRadiusHelp": "Approach roads are connected where they cross this circle.",
+  "circulatingLanes": "Circulating lanes",
+  "circulatingSpeed": "Circulating speed limit",
+  "roadTitle": "Road segment {id}",
+  "@roadTitle": {
+    "placeholders": {
+      "id": {
+        "type": "String"
+      }
+    }
+  },
+  "reverseDirection": "Swap directions",
+  "splitRoad": "Split in the middle",
+  "roadGeometry": "Length {len} m · grade {grade} %",
+  "@roadGeometry": {
+    "placeholders": {
+      "len": {
+        "type": "String"
+      },
+      "grade": {
+        "type": "String"
+      }
+    }
+  },
+  "gradeNote": "Grade from end-node elevations. Elevations are passed to the simulation; the visual 3D model comes in phase 3.",
+  "roadPriority": "Road hierarchy at junctions",
+  "priorityAuto": "Automatic",
+  "priorityMajor": "Major",
+  "priorityMinor": "Minor",
+  "directionForward": "Drawing direction",
+  "directionBackward": "Opposite direction",
+  "towardNode": "Traffic toward {node}",
+  "@towardNode": {
+    "placeholders": {
+      "node": {
+        "type": "String"
+      }
+    }
+  },
+  "throughLanes": "Through lanes",
+  "leftTurnBay": "Left-turn bay",
+  "rightTurnBay": "Right-turn bay",
+  "lanes": "Lanes",
+  "storageLength": "Storage length",
+  "oneWayInfo": "One-way road: set the lane count of one direction to zero.",
+  "demandSource": "Data source",
+  "sourceObserved": "Observed counts",
+  "sourceAssumed": "Assumed scenario",
+  "sourceObservedHelp": "Use for volumes counted in the field. Record the survey date, period and method in the note; results are labelled as based on observed demand.",
+  "sourceAssumedHelp": "Use for hypothetical or forecast volumes. Results are labelled as based on assumed demand and must not be presented as measurements.",
+  "sourceNote": "Source note",
+  "sourceNoteHint": "e.g. manual count, 2025-03-04, 07:00–08:00",
+  "poissonArrivals": "Random (Poisson) arrivals",
+  "poissonArrivalsHelp": "Off: vehicles arrive at evenly spaced intervals.",
+  "noEntriesYet": "Draw roads first: traffic enters and leaves the model at road ends (green circles).",
+  "totalDemand": "Total entering demand: {flow} veh/h",
+  "@totalDemand": {
+    "placeholders": {
+      "flow": {
+        "type": "String"
+      }
+    }
+  },
+  "entryFrom": "Entry: {name}",
+  "@entryFrom": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "flowVehPerHour": "Entering flow",
+  "vehPerHour": "veh/h",
+  "vehicleMix": "Vehicle mix",
+  "cars": "Cars",
+  "trucks": "Trucks",
+  "buses": "Buses",
+  "mixMustBe100": "Mix must total 100% (now {sum}%)",
+  "@mixMustBe100": {
+    "placeholders": {
+      "sum": {
+        "type": "String"
+      }
+    }
+  },
+  "destinationsTitle": "Turning / destination shares",
+  "equalSplit": "Equal",
+  "normalize": "Scale to 100%",
+  "shareTotal": "Total {sum}%",
+  "@shareTotal": {
+    "placeholders": {
+      "sum": {
+        "type": "String"
+      }
+    }
+  },
+  "turnLeft": "Left",
+  "turnThrough": "Through",
+  "turnRight": "Right",
+  "turnU": "U-turn",
+  "runSimulation": "Run simulation",
+  "runButton": "Simulate ({n} replications)",
+  "@runButton": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "phaseSubmitting": "Sending design to the server…",
+  "phaseRunning": "Simulating… {pct}% {msg}",
+  "@phaseRunning": {
+    "placeholders": {
+      "pct": {
+        "type": "String"
+      },
+      "msg": {
+        "type": "String"
+      }
+    }
+  },
+  "phaseFetching": "Downloading results and trajectories…",
+  "simulationFailed": "The simulation did not complete:",
+  "simulationDone": "Simulation finished. All figures come from this run.",
+  "viewResults": "View",
+  "validateDesign": "Check design with SUMO (no traffic)",
+  "validationOk": "SUMO built the network without warnings.",
+  "validationOkWithWarnings": "SUMO built the network with warnings:",
+  "runSettings": "Run settings",
+  "duration": "Duration",
+  "warmup": "Warm-up",
+  "warmupHelp": "Warm-up fills the network and is excluded from all statistics.",
+  "replications": "Replications",
+  "baseSeed": "First random seed",
+  "replicationsHelp": "Each replication uses a different seed; results show the mean and 95% confidence interval. Compare variants with the same seeds.",
+  "timeStep": "Simulation time step",
+  "recordPlayback": "Record vehicle positions for playback",
+  "recordPlaybackHelp": "First {min} min of replication 1, exactly as simulated.",
+  "@recordPlaybackHelp": {
+    "placeholders": {
+      "min": {
+        "type": "String"
+      }
+    }
+  },
+  "playbackWindow": "Playback window",
+  "driverBehaviour": "Driver behaviour",
+  "carFollowingModel": "Car-following model",
+  "modelEidm": "EIDM – Extended IDM (default)",
+  "modelIdm": "IDM – Intelligent Driver Model",
+  "modelKrauss": "Krauss (SUMO default)",
+  "carFollowingHelp": "EIDM adds reaction time, estimation errors and jerk limits to IDM. Parameters are SUMO defaults until calibrated with local data.",
+  "driverHeterogeneity": "Different driver profiles",
+  "driverHeterogeneityHelp": "Varies headway, gaps, acceleration, speed choice and reaction time between drivers (assumed spreads).",
+  "gapAcceptance": "Gap acceptance (SUMO impatience, 0–1)",
+  "gapAcceptanceHelp": "0.5 reproduces HCM 6th Ed. give-way and roundabout entry capacities in the benchmark suite; SUMO's own default (0) gives 15–30% of them. Calibrate with local data when available.",
+  "strictStop": "Strict full stop at stop signs",
+  "strictStopHelp": "Off (default): stop-controlled approaches use field-calibrated gap behaviour, as in HCM. On: every vehicle halts at the line, which in SUMO discharges at about 45% of observed rates.",
+  "reactionMin": "Reaction time min",
+  "reactionMax": "Reaction time max",
+  "signalTiming": "Signal timing",
+  "signalTimingHelp": "Fixed-time plan generated for all signalised junctions. Phase-by-phase editing comes in phase 2.",
+  "cycleTime": "Cycle time",
+  "autoYellow": "Yellow time from approach speed (SUMO)",
+  "yellowTime": "Yellow time",
+  "allRedTime": "All-red time",
+  "leftGreen": "Protected left-turn green",
+  "leftGreenHelp": "Used where left-turn lanes exist; 0 = no protected left phase.",
+  "phaseLayout": "Phase layout",
+  "layoutOpposites": "Opposing approaches together",
+  "layoutIncoming": "One approach at a time (split phasing)",
+  "noResultsYet": "No results yet. Set up traffic and run a simulation from the Simulate tab.",
+  "resultsStale": "The design or settings changed after this run. Run again to update the results.",
+  "reliability": "Reliability",
+  "resultMeta": "Run {date} · {n} replications · {duration} simulated, {warmup} warm-up excluded",
+  "@resultMeta": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      },
+      "n": {
+        "type": "int"
+      },
+      "duration": {
+        "type": "String"
+      },
+      "warmup": {
+        "type": "String"
+      }
+    }
+  },
+  "demandWasObserved": "Demand: observed counts",
+  "demandWasAssumed": "Demand: assumed scenario (not measurements)",
+  "kpiDelay": "Average delay",
+  "kpiThroughput": "Throughput",
+  "kpiMaxQueue": "Longest queue",
+  "kpiWorstAvgQueue": "Average queue, worst approach",
+  "kpiTravelTime": "Travel time",
+  "kpiSpeed": "Average speed",
+  "kpiStops": "Stops per vehicle",
+  "kpiCompleted": "Vehicles measured",
+  "unitSecPerVeh": "s/veh",
+  "perReplication": "per replication",
+  "ci95": "95% CI",
+  "singleRun": "single replication: no interval",
+  "intersections": "Intersections",
+  "delay": "Delay",
+  "losNote": "LOS letters are indicative: HCM 6th Edition delay thresholds applied to simulated delay. Use the methodology required by the reviewing authority.",
+  "approaches": "Approaches",
+  "approach": "Approach",
+  "losShort": "LOS",
+  "queueAvg": "Avg queue",
+  "queueP95": "95th % queue",
+  "queueMax": "Max queue",
+  "flow": "Flow",
+  "movements": "Movements (origin → destination)",
+  "fromTo": "From → to",
+  "vehicles": "Vehicles",
+  "warningsCount": "Data quality and warnings ({n}, {high} serious)",
+  "@warningsCount": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      },
+      "high": {
+        "type": "int"
+      }
+    }
+  },
+  "assumptions": "Assumptions used in this run",
+  "definitions": "Metric definitions",
+  "definitionsLanguageNote": "Definitions are provided by the server in English.",
+  "exportCsv": "Export results (CSV)",
+  "exportedTo": "Saved to {path}",
+  "@exportedTo": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      }
+    }
+  },
+  "playbackNeedsRun": "Run a simulation to watch the traffic.",
+  "playbackNotRecorded": "This run did not record vehicle positions.",
+  "goToSimulation": "Simulation settings",
+  "playbackNoTrajectory": "Simulated network (no recorded vehicles)",
+  "playbackInfo": "Replication 1 of {n} · {from}–{to} · positions exactly as computed by SUMO",
+  "@playbackInfo": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      },
+      "from": {
+        "type": "String"
+      },
+      "to": {
+        "type": "String"
+      }
+    }
+  },
+  "staleShort": "outdated",
+  "play": "Play",
+  "pause": "Pause",
+  "restart": "Restart",
+  "stepBack": "Step back",
+  "stepForward": "Step forward",
+  "playbackSpeed": "Playback speed",
+  "heatmap": "Congestion heat map",
+  "heatmapTitle": "Mean speed / speed limit",
+  "noData": "no data",
+  "colorBySpeed": "Colour vehicles by speed",
+  "followVehicle": "Follow",
+  "vehicleSpeed": "Speed {kmh} km/h",
+  "@vehicleSpeed": {
+    "placeholders": {
+      "kmh": {
+        "type": "String"
+      }
+    }
+  },
+  "vehicleLeft": "Not in the network at this time",
+  "issueNoRoads": "The design has no roads yet.",
+  "issueIsolatedNode": "Node {node} is not connected and will be ignored.",
+  "@issueIsolatedNode": {
+    "placeholders": {
+      "node": {
+        "type": "String"
+      }
+    }
+  },
+  "issueRoundaboutNeedsRoads": "Roundabout {node} needs at least two connected roads.",
+  "@issueRoundaboutNeedsRoads": {
+    "placeholders": {
+      "node": {
+        "type": "String"
+      }
+    }
+  },
+  "issueSignalAtDeadEnd": "Node {node} is a road end and cannot be signalised.",
+  "@issueSignalAtDeadEnd": {
+    "placeholders": {
+      "node": {
+        "type": "String"
+      }
+    }
+  },
+  "issueRoadTooShort": "Road {road} is shorter than 1 m.",
+  "@issueRoadTooShort": {
+    "placeholders": {
+      "road": {
+        "type": "String"
+      }
+    }
+  },
+  "issueBayTooLong": "Turn bay of {bay} m does not fit on road {road}.",
+  "@issueBayTooLong": {
+    "placeholders": {
+      "road": {
+        "type": "String"
+      },
+      "bay": {
+        "type": "String"
+      }
+    }
+  },
+  "issueNoGates": "No road ends: traffic needs road ends to enter and leave the model.",
+  "issueNoDemand": "No traffic entered yet (Traffic tab).",
+  "issueOriginNotGate": "Traffic entering at {node}, which is no longer a road end.",
+  "@issueOriginNotGate": {
+    "placeholders": {
+      "node": {
+        "type": "String"
+      }
+    }
+  },
+  "issueOriginNoLanes": "No lane enters the network at {node}.",
+  "@issueOriginNoLanes": {
+    "placeholders": {
+      "node": {
+        "type": "String"
+      }
+    }
+  },
+  "issueMixSum": "Vehicle mix at {node} totals {sum}% instead of 100%.",
+  "@issueMixSum": {
+    "placeholders": {
+      "node": {
+        "type": "String"
+      },
+      "sum": {
+        "type": "String"
+      }
+    }
+  },
+  "issueShareSum": "Destination shares from {node} total {sum}% instead of 100%.",
+  "@issueShareSum": {
+    "placeholders": {
+      "node": {
+        "type": "String"
+      },
+      "sum": {
+        "type": "String"
+      }
+    }
+  },
+  "issueDestinationInvalid": "Traffic from {node} goes to {dest}, where no lane leaves the network.",
+  "@issueDestinationInvalid": {
+    "placeholders": {
+      "node": {
+        "type": "String"
+      },
+      "dest": {
+        "type": "String"
+      }
+    }
+  },
+  "issueSameOriginDestination": "Traffic from {node} cannot return to the same road end.",
+  "@issueSameOriginDestination": {
+    "placeholders": {
+      "node": {
+        "type": "String"
+      }
+    }
+  },
+  "issueWarmupTooLong": "Warm-up must be shorter than the simulation duration.",
+  "issueFewReplications": "Only {n} replication(s): at least 5 are recommended.",
+  "@issueFewReplications": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "issueEidmStep": "EIDM needs a time step of 0.5 s or less."
+}

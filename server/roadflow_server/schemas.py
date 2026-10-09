@@ -198,6 +198,15 @@ class DriverModel(ApiModel):
     speed_factor_dev: float = Field(default=0.1, ge=0.0, le=0.4)
     reaction_time_min_s: float = Field(default=0.5, ge=0.1, le=3.0)
     reaction_time_max_s: float = Field(default=1.0, ge=0.1, le=3.0)
+    # Gap acceptance at give-way / stop / roundabout entries (SUMO junction model).
+    # 0.5 brings minor-street and roundabout entry capacities close to HCM 6th Ed.
+    # values in the benchmark suite (docs/VALIDATION.md); SUMO's default 0 gives
+    # 15-30 % of those capacities. It is a stand-in until local calibration.
+    impatience: float = Field(default=0.5, ge=0.0, le=1.0)
+    # SUMO's strict stop (every vehicle halts at the line) discharges stop-controlled
+    # queues at ~45 % of the HCM follow-up rate; by default stop signs use the
+    # field-calibrated give-way gap behaviour, as HCM does for both control types.
+    stop_sign_full_stop: bool = False
 
     @model_validator(mode="after")
     def _range(self) -> DriverModel:

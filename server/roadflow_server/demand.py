@@ -90,8 +90,11 @@ def vtype_elements(drivers: DriverModel, run: RunSettings, seed: int) -> tuple[l
                 "length": f"{d['length']:.2f}",
                 "width": f"{d['width']:.2f}",
                 "speedFactor": f"normc({drivers.speed_factor_mean:.3f},{drivers.speed_factor_dev:.3f},0.2,2.0)",
+                "impatience": f"{drivers.impatience:.3f}",
                 "probability": "1",
             }
+            if not drivers.stop_sign_full_stop:
+                attrs["jmStopSignWait"] = "0"
             if drivers.car_follow_model == "EIDM":
                 # EIDM models reaction time itself and is incompatible with action steps.
                 attrs["treaction"] = f"{reaction:.3f}"
