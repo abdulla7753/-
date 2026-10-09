@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 
 import '../editor/editor_controller.dart';
+import '../l10n/app_localizations.dart';
 import '../model/project.dart';
 import '../model/request_builder.dart';
 import '../model/results.dart';
@@ -23,6 +24,7 @@ class SimulationController extends ChangeNotifier {
   SimPhase phase = SimPhase.idle;
   double progress = 0;
   String message = '';
+  String serverStatus = '';
   List<String> errors = [];
   String? _jobId;
   bool _cancelled = false;
@@ -36,6 +38,15 @@ class SimulationController extends ChangeNotifier {
   bool validating = false;
   List<String>? buildWarnings;
   List<String>? buildErrors;
+
+  /// Localised description of the server-side stage (the server reports English messages).
+  String statusText(AppLocalizations l) => switch (serverStatus) {
+        'queued' => l.stageQueued,
+        'building' => l.stageBuilding,
+        'running' => l.stageRunning,
+        'analysing' => l.stageAnalysing,
+        _ => '',
+      };
 
   bool get busy => phase == SimPhase.submitting || phase == SimPhase.running || phase == SimPhase.fetching;
 
@@ -107,6 +118,7 @@ class SimulationController extends ChangeNotifier {
         status = await api.status(status.jobId);
         progress = status.progress;
         message = status.message;
+        serverStatus = status.status;
         notifyListeners();
       }
       if (status.status == 'failed') {

@@ -44,7 +44,7 @@ class SimulationPanel extends StatelessWidget {
           const SizedBox(height: 6),
           Text(switch (sim.phase) {
             SimPhase.submitting => l.phaseSubmitting,
-            SimPhase.running => l.phaseRunning((sim.progress * 100).toStringAsFixed(0), sim.message),
+            SimPhase.running => l.phaseRunning((sim.progress * 100).toStringAsFixed(0), sim.statusText(l)),
             SimPhase.fetching => l.phaseFetching,
             _ => '',
           }),
@@ -141,7 +141,7 @@ class SimulationPanel extends StatelessWidget {
           key: ValueKey('step_${run.stepLengthS}'),
           initialValue: run.stepLengthS,
           decoration: InputDecoration(labelText: l.timeStep, border: const OutlineInputBorder()),
-          items: [for (final s in [0.1, 0.2, 0.25, 0.5, 1.0]) DropdownMenuItem(value: s, child: Text('$s s'))],
+          items: [for (final s in [0.1, 0.2, 0.25, 0.5, 1.0]) DropdownMenuItem(value: s, child: Text('$s s', textDirection: TextDirection.ltr))],
           onChanged: (s) => editor.updateRun(run.copyWith(stepLengthS: s)),
         ),
         SwitchListTile(

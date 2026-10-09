@@ -1,6 +1,6 @@
 FROM python:3.12-slim
-# SUMO's manylinux wheel needs a few shared libraries at runtime.
-RUN apt-get update && apt-get install -y --no-install-recommends libgl1 libglu1-mesa libxrender1 libxcursor1 libxft2 libxinerama1 \
+# The eclipse-sumo wheel bundles most libraries; sumo/netconvert still link X11 and GL.
+RUN apt-get update && apt-get install -y --no-install-recommends libgl1 libx11-6 libxext6 libxrender1 \
     && rm -rf /var/lib/apt/lists/*
 WORKDIR /srv
 COPY requirements.txt .

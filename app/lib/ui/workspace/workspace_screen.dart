@@ -74,7 +74,7 @@ class _WorkspaceScreenState extends State<WorkspaceScreen> with SingleTickerProv
       vp.set(2, Offset(_canvasSize.width / 2, _canvasSize.height / 2));
       return;
     }
-    vp.fit(b.min, b.max, _canvasSize);
+    vp.fit(b.min, b.max, _canvasSize, padding: 80);
   }
 
   Map<String, String> _gateLabels() =>
@@ -347,13 +347,13 @@ class _WorkspaceScreenState extends State<WorkspaceScreen> with SingleTickerProv
             tooltip: l.speedLimit,
             initialValue: d.speedLimitKmh,
             onSelected: (v) => editor.setOptions(defaults: d.copyWith(speedLimitKmh: v)),
-            itemBuilder: (_) => [for (final s in [30.0, 40.0, 50.0, 60.0, 80.0, 100.0, 120.0]) PopupMenuItem(value: s, child: Text('$s km/h'))],
+            itemBuilder: (_) => [for (final s in [30.0, 40.0, 50.0, 60.0, 80.0, 100.0, 120.0]) PopupMenuItem(value: s, child: Text('${s.toStringAsFixed(0)} km/h', textDirection: TextDirection.ltr))],
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8),
               child: Row(mainAxisSize: MainAxisSize.min, children: [
                 const Icon(Icons.speed, size: 18),
                 const SizedBox(width: 4),
-                Text('${d.speedLimitKmh.toStringAsFixed(0)} km/h'),
+                Text('${d.speedLimitKmh.toStringAsFixed(0)} km/h', textDirection: TextDirection.ltr),
               ]),
             ),
           ),
@@ -380,10 +380,10 @@ class _WorkspaceScreenState extends State<WorkspaceScreen> with SingleTickerProv
           PopupMenuButton<double>(
             tooltip: l.armLength,
             onSelected: (v) => editor.setOptions(armM: v),
-            itemBuilder: (_) => [for (final s in [100.0, 150.0, 200.0, 300.0, 400.0]) PopupMenuItem(value: s, child: Text('$s m'))],
+            itemBuilder: (_) => [for (final s in [100.0, 150.0, 200.0, 300.0, 400.0]) PopupMenuItem(value: s, child: Text('${s.toStringAsFixed(0)} m', textDirection: TextDirection.ltr))],
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8),
-              child: Text('${l.armLength}: ${editor.templateArmM.toStringAsFixed(0)} m'),
+              child: Text('${l.armLength}: \u2066${editor.templateArmM.toStringAsFixed(0)} m\u2069'),
             ),
           ),
           Text(l.hintTapToPlace),

@@ -1,12 +1,21 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Needed to reach the simulation server. -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <!-- Tablet app: landscape is the design orientation. -->
+    <uses-feature android:name="android.hardware.touchscreen" android:required="true"/>
+    <supports-screens android:smallScreens="false" android:normalScreens="true" android:largeScreens="true" android:xlargeScreens="true"/>
+    <!-- usesCleartextTraffic allows an on-premises server on a local network over HTTP;
+         the app warns when an unencrypted address is used. Use HTTPS in production. -->
     <application
-        android:label="roadflow_ai"
+        android:label="RoadFlow AI"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/ic_launcher"
+        android:usesCleartextTraffic="true">
         <activity
             android:name=".MainActivity"
             android:exported="true"
             android:launchMode="singleTop"
+            android:screenOrientation="sensorLandscape"
             android:taskAffinity=""
             android:theme="@style/LaunchTheme"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"

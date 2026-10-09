@@ -278,6 +278,12 @@ abstract class AppLocalizations {
   /// **'Access token (optional)'**
   String get apiToken;
 
+  /// No description provided for @insecureServer.
+  ///
+  /// In en, this message translates to:
+  /// **'Unencrypted (http) connection: designs and results travel in clear text. Use https outside a trusted local network.'**
+  String get insecureServer;
+
   /// No description provided for @testConnection.
   ///
   /// In en, this message translates to:
@@ -1081,6 +1087,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Simulating… {pct}% {msg}'**
   String phaseRunning(String pct, String msg);
+
+  /// No description provided for @stageQueued.
+  ///
+  /// In en, this message translates to:
+  /// **'waiting for a free simulator'**
+  String get stageQueued;
+
+  /// No description provided for @stageBuilding.
+  ///
+  /// In en, this message translates to:
+  /// **'building the SUMO network'**
+  String get stageBuilding;
+
+  /// No description provided for @stageRunning.
+  ///
+  /// In en, this message translates to:
+  /// **'running replications'**
+  String get stageRunning;
+
+  /// No description provided for @stageAnalysing.
+  ///
+  /// In en, this message translates to:
+  /// **'computing results'**
+  String get stageAnalysing;
 
   /// No description provided for @phaseFetching.
   ///

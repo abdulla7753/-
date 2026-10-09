@@ -101,9 +101,15 @@ class _NumberFieldState extends State<NumberField> {
 
   @override
   Widget build(BuildContext context) {
+    // Digits are always entered left-to-right; in right-to-left layouts the unit
+    // moves into the label so it never ends up glued to the wrong side of the number.
+    final rtl = Directionality.of(context) == TextDirection.rtl;
+    final unit = widget.suffix;
+    final label = rtl && unit != null && widget.label.isNotEmpty ? '${widget.label} (\u2066$unit\u2069)' : widget.label;
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 4),
       child: TextField(
+        textAlign: rtl ? TextAlign.right : TextAlign.left,
         controller: _text,
         focusNode: _focus,
         enabled: widget.enabled,
@@ -111,8 +117,8 @@ class _NumberFieldState extends State<NumberField> {
         inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9.,٫\-]'))],
         textDirection: TextDirection.ltr,
         decoration: InputDecoration(
-          labelText: widget.label,
-          suffixText: widget.suffix,
+          labelText: label,
+          suffixText: rtl && widget.label.isNotEmpty ? null : unit,
           helperText: widget.helper,
           helperMaxLines: 3,
           isDense: true,

@@ -109,6 +109,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get apiToken => 'Access token (optional)';
 
   @override
+  String get insecureServer =>
+      'Unencrypted (http) connection: designs and results travel in clear text. Use https outside a trusted local network.';
+
+  @override
   String get testConnection => 'Test connection';
 
   @override
@@ -568,6 +572,18 @@ class AppLocalizationsEn extends AppLocalizations {
   String phaseRunning(String pct, String msg) {
     return 'Simulating… $pct% $msg';
   }
+
+  @override
+  String get stageQueued => 'waiting for a free simulator';
+
+  @override
+  String get stageBuilding => 'building the SUMO network';
+
+  @override
+  String get stageRunning => 'running replications';
+
+  @override
+  String get stageAnalysing => 'computing results';
 
   @override
   String get phaseFetching => 'Downloading results and trajectories…';

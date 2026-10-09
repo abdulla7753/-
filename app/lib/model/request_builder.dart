@@ -168,7 +168,8 @@ Map<String, dynamic> buildSimulationRequest(Variant v, {String? label}) {
       'trajectory': {
         'enabled': run.trajectory,
         'periodS': math.max(run.trajectoryPeriodS, run.stepLengthS),
-        'beginS': 0,
+        // Record the window right after the warm-up: representative, measured traffic.
+        'beginS': math.max(0.0, math.min(run.warmupS, run.durationS - run.trajectoryMaxS)),
         'maxDurationS': math.min(run.trajectoryMaxS, run.durationS),
       },
     },

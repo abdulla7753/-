@@ -65,11 +65,19 @@ def assumptions(req: SimulationRequest, built: BuiltNetwork) -> list[dict]:
         ),
         (
             f"Gap acceptance: SUMO junction model with base impatience {d.impatience} "
-            + ("and strict full stops at stop signs. " if d.stop_sign_full_stop else "and stop signs modelled with give-way gap behaviour (no enforced full halt). ")
+            + (
+                "and strict full stops at stop signs. "
+                if d.stop_sign_full_stop
+                else "and stop signs modelled with give-way gap behaviour (no enforced full halt). "
+            )
             + "These settings were chosen so minor-street and roundabout entry capacities approximate HCM 6th Ed. "
             "relationships in the benchmark suite (docs/VALIDATION.md); they are not calibrated to local driver behaviour.",
             f"قبول الفجوات: نموذج التقاطعات في SUMO مع نفاد صبر أساسي {d.impatience} "
-            + ("وتوقف كامل إلزامي عند لافتات التوقف. " if d.stop_sign_full_stop else "ونمذجة لافتات التوقف بسلوك إفساح الطريق (دون فرض توقف كامل). ")
+            + (
+                "وتوقف كامل إلزامي عند لافتات التوقف. "
+                if d.stop_sign_full_stop
+                else "ونمذجة لافتات التوقف بسلوك إفساح الطريق (دون فرض توقف كامل). "
+            )
             + "اختيرت هذه القيم لتقارب الطاقة الاستيعابية للطرق الفرعية ومداخل الدوارات علاقاتِ دليل HCM الإصدار السادس في مجموعة الاختبارات المرجعية "
             "(docs/VALIDATION.md)؛ وهي غير معايرة على سلوك السائقين المحلي.",
         ),

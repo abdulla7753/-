@@ -51,6 +51,7 @@
   "serverExplanation": "Design work is stored on this device and works offline. Simulations run on the RoadFlow server (SUMO). Use HTTPS outside a trusted network.",
   "serverUrl": "Server address",
   "apiToken": "Access token (optional)",
+  "insecureServer": "Unencrypted (http) connection: designs and results travel in clear text. Use https outside a trusted local network.",
   "testConnection": "Test connection",
   "serverOk": "Connected: {engine} (server {version})",
   "@serverOk": {
@@ -351,6 +352,10 @@
       }
     }
   },
+  "stageQueued": "waiting for a free simulator",
+  "stageBuilding": "building the SUMO network",
+  "stageRunning": "running replications",
+  "stageAnalysing": "computing results",
   "phaseFetching": "Downloading results and trajectories…",
   "simulationFailed": "The simulation did not complete:",
   "simulationDone": "Simulation finished. All figures come from this run.",

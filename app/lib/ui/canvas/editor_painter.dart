@@ -171,8 +171,31 @@ class EditorPainter extends CustomPainter {
     }
   }
 
+  /// Radius of the junction patch drawn at [nodeId] (0 for road ends and simple bends).
+  double _junctionRadius(String nodeId) {
+    final n = net.nodes[nodeId]!;
+    if (n.control == NodeControl.roundabout) {
+      final rb = n.roundabout ?? const RoundaboutSpec();
+      return rb.radiusM + rb.lanes * rb.laneWidthM / 2;
+    }
+    if (net.degree(nodeId) < 3 && n.control != NodeControl.trafficLight) return 0;
+    return net.roadsAt(nodeId).map((x) => RoadCrossSection.of(x, net.drivingSide).halfWidth).fold(0.0, math.max) * 1.15;
+  }
+
+  /// Centreline without the parts inside junction patches, so markings stop at the junction.
+  List<Vec2> _markingLine(Road r) {
+    var pts = net.polyline(r);
+    final len = polylineLength(pts);
+    final a = _junctionRadius(r.from), b = _junctionRadius(r.to);
+    if (a + b >= len - 1) return const [];
+    if (b > 0) pts = splitPolylineAt(pts, len - b).$1;
+    if (a > 0) pts = splitPolylineAt(pts, a).$2;
+    return pts;
+  }
+
   void _drawMarkings(Canvas canvas, Road r) {
-    final pts = net.polyline(r);
+    final pts = _markingLine(r);
+    if (pts.length < 2) return;
     final cs = RoadCrossSection.of(r, net.drivingSide);
     final w = math.max(1.0, vp.px(0.15));
     final white = Paint()
@@ -213,7 +236,8 @@ class EditorPainter extends CustomPainter {
       lanes(cs.backward, r.backward.lanes, -mid.dir);
     }
     if (vp.scale > 1.5) {
-      final mid = pointAlong(pts, polylineLength(pts) / 2).point;
+      final full = net.polyline(r);
+      final mid = pointAlong(full, polylineLength(full) / 2).point;
       final label = r.name?.isNotEmpty == true ? '${r.name} · ${r.id}' : r.id;
       drawLabel(canvas, vp.toScreen(mid) + Offset(0, -vp.px(cs.halfWidth) - 10), label,
           size: 11, background: const Color(0xCCFFFFFF));

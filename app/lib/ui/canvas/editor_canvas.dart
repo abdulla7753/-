@@ -191,31 +191,34 @@ class _EditorCanvasState extends State<EditorCanvas> {
 
   @override
   Widget build(BuildContext context) {
-    return Listener(
-      onPointerDown: (e) => _kind = e.kind,
-      onPointerSignal: (e) {
-        if (e is PointerScrollEvent) vp.zoomAt(e.localPosition, math.exp(-e.scrollDelta.dy / 400));
-      },
-      child: GestureDetector(
-        behavior: HitTestBehavior.opaque,
-        onTapUp: _onTapUp,
-        onScaleStart: _onScaleStart,
-        onScaleUpdate: _onScaleUpdate,
-        onScaleEnd: _onScaleEnd,
-        child: ListenableBuilder(
-          listenable: c,
-          builder: (context, _) => CustomPaint(
-            size: Size.infinite,
-            painter: EditorPainter(
-              net: c.network,
-              vp: vp,
-              selection: c.selection,
-              tool: c.tool,
-              draft: _draft,
-              measure: List.of(c.measurePoints),
-              gateLabels: widget.gateLabels,
-              draftWidthM: (c.roadDefaults.lanesForward + c.roadDefaults.lanesBackward) * c.roadDefaults.laneWidthM,
-              dark: Theme.of(context).brightness == Brightness.dark,
+    // Clip: at high zoom the painter's road geometry extends far beyond the canvas.
+    return ClipRect(
+      child: Listener(
+        onPointerDown: (e) => _kind = e.kind,
+        onPointerSignal: (e) {
+          if (e is PointerScrollEvent) vp.zoomAt(e.localPosition, math.exp(-e.scrollDelta.dy / 400));
+        },
+        child: GestureDetector(
+          behavior: HitTestBehavior.opaque,
+          onTapUp: _onTapUp,
+          onScaleStart: _onScaleStart,
+          onScaleUpdate: _onScaleUpdate,
+          onScaleEnd: _onScaleEnd,
+          child: ListenableBuilder(
+            listenable: c,
+            builder: (context, _) => CustomPaint(
+              size: Size.infinite,
+              painter: EditorPainter(
+                net: c.network,
+                vp: vp,
+                selection: c.selection,
+                tool: c.tool,
+                draft: _draft,
+                measure: List.of(c.measurePoints),
+                gateLabels: widget.gateLabels,
+                draftWidthM: (c.roadDefaults.lanesForward + c.roadDefaults.lanesBackward) * c.roadDefaults.laneWidthM,
+                dark: Theme.of(context).brightness == Brightness.dark,
+              ),
             ),
           ),
         ),

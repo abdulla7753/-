@@ -52,6 +52,18 @@ Future<void> showServerSettings(BuildContext context, AppSettings settings) asyn
                   textDirection: TextDirection.ltr,
                   decoration: InputDecoration(labelText: l.apiToken, border: const OutlineInputBorder()),
                 ),
+                ValueListenableBuilder(
+                  valueListenable: url,
+                  builder: (_, v, _) {
+                    final u = Uri.tryParse(v.text.trim());
+                    final local = u != null && (u.host == 'localhost' || u.host == '127.0.0.1' || u.host == '10.0.2.2');
+                    if (u == null || u.scheme != 'http' || local) return const SizedBox.shrink();
+                    return Padding(
+                      padding: const EdgeInsets.only(top: 8),
+                      child: Text(l.insecureServer, style: TextStyle(color: Theme.of(ctx).colorScheme.error)),
+                    );
+                  },
+                ),
                 const SizedBox(height: 12),
                 if (testing) const LinearProgressIndicator(),
                 if (status != null) Text(status!),

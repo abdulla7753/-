@@ -108,6 +108,10 @@ class AppLocalizationsAr extends AppLocalizations {
   String get apiToken => 'رمز الوصول (اختياري)';
 
   @override
+  String get insecureServer =>
+      'اتصال غير مشفر (http): تنتقل التصاميم والنتائج دون تشفير. استخدم https خارج الشبكة المحلية الموثوقة.';
+
+  @override
   String get testConnection => 'اختبار الاتصال';
 
   @override
@@ -567,6 +571,18 @@ class AppLocalizationsAr extends AppLocalizations {
   String phaseRunning(String pct, String msg) {
     return 'جارٍ المحاكاة… $pct% $msg';
   }
+
+  @override
+  String get stageQueued => 'بانتظار محاكي متاح';
+
+  @override
+  String get stageBuilding => 'إنشاء شبكة SUMO';
+
+  @override
+  String get stageRunning => 'تشغيل التكرارات';
+
+  @override
+  String get stageAnalysing => 'حساب النتائج';
 
   @override
   String get phaseFetching => 'جارٍ تنزيل النتائج والمسارات…';

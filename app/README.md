@@ -1,17 +1,17 @@
-# roadflow_ai
+# RoadFlow AI – tablet app
 
-RoadFlow AI - road design and microscopic traffic simulation for tablets
+Flutter app for Android tablets and iPad. See the [main README](../README.md) for an
+overview and [docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md) for the code structure.
 
-## Getting Started
+```bash
+flutter pub get
+flutter test && flutter analyze
+flutter run                                     # on a connected tablet / emulator
+flutter build apk                               # Android
+flutter build ios                               # iPad (macOS + Xcode + signing team)
+# Default simulation server address can be baked in:
+flutter build apk --dart-define=ROADFLOW_SERVER=https://sim.example.org
+```
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+UI strings live in `tool/gen_arb.py` (Arabic and English side by side) and are written
+to `lib/l10n/*.arb`. Regenerate with `python3 tool/gen_arb.py lib/l10n && flutter gen-l10n`.
