@@ -15,14 +15,15 @@ class SumoNotFound(RuntimeError):
 
 @functools.cache
 def binary(name: str) -> str:
+    exe = name + ".exe" if os.name == "nt" else name
     candidates: list[Path] = []
     home = os.environ.get("SUMO_HOME")
     if home:
-        candidates.append(Path(home) / "bin" / name)
+        candidates.append(Path(home) / "bin" / exe)
     try:
         import sumo  # eclipse-sumo wheel
 
-        candidates.append(Path(sumo.SUMO_HOME) / "bin" / name)
+        candidates.append(Path(sumo.SUMO_HOME) / "bin" / exe)
     except ImportError:
         pass
     for c in candidates:
